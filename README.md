@@ -1,4 +1,6 @@
 # Yellow Sea Diamonds 🔶🔶🔶 theme for Zsh/Oh My Zsh
+See this README [on GitHub](https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme/blob/main/README.md).
+
 ## Description of output and selective discussion of rationales
 Here’s my theme for Zsh and [Oh My Zsh](https://ohmyz.sh/) that I developed for
 my personal workflow that is characterized by:
@@ -10,14 +12,14 @@ my personal workflow that is characterized by:
 - I’m not working with multiple machines/hosts
   - Therefore I don’t need to be told the name of the machine
 - I know what time it is and can’t think of any reason to have a date or time
-   stamp on the prompt line (though apparently other people do have such needs).
+   stamp on the prompt line (though apparently other people do have such needs)
 - I work on macOS 12.4 (Monterey) using iTerm and Oh My Zsh
-  – (Although I use VS Code, too, I almost always use iTerm2 as the terminal app
-    rather than VS Code’s integrated terminal.)
+  - (Although I use VS Code, too, I almost always use iTerm2 as the terminal app
+    rather than VS Code’s integrated terminal)
   - This is the only environment on which Yellow Sea Diamonds has been tested
   - Will [my diamond emoji](https://unicode-table.com/en/1F536/) with color
     [“Yellow Sea](https://www.htmlcsscolor.com/hex/EB9E2B)” (“🔶”) render
-    correctly or with the the same color on other people’s systems?
+    correctly and with the the same color on other people’s systems?
       - I don’t know!
 
 This theme creates a two-line prompt structure (not including the leading blank
@@ -65,3 +67,21 @@ Line 2 for comments with long arguments, particularly long file paths.
 ### CWD plus nonzero return code
 <img width="879" alt="Nonzero_return_code_example" src="https://user-images.githubusercontent.com/8410716/173451675-5686422f-ca17-47ce-b9ce-464e5f4b39fd.png">
 
+## Usage notes
+### Prevent duplication of the “(venv)” virtual-environment prompt
+When you activate a venv virtual environment, your shell will typically supply its own “(venv)” line of output. If you
+don’t prevent that, this will be annoyingly duplicative of Yellow Sea Diamond’s own “(venv)” prompt component. See
+the screenshot immediately below.
+
+The key to preventing this duplication is issuing the following command *before* you activate your virtual environment:
+```
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+```
+Of course, you won’t want to have to remember to type this command every time you activate a virtual environment. You’ll
+probably find it worthwhile to make an alias like the following:
+```
+alias activate_venv='export VIRTUAL_ENV_DISABLE_PROMPT=1;source venv/bin/activate'
+```
+Then, after `cd`-ing into the directory in which your `venv` directory resides, just type `activate_venv` to 
+simultaneously activate your virtual environment while also suppressing Zsh’s otherwise duplicative “(venv)” output.
