@@ -55,11 +55,13 @@ Line 2 for comments with long arguments, particularly long file paths.
 
 ### CWD plus activated virtual environment
 <img width="876" alt="Name_of_activated_virtual_environment" src="https://user-images.githubusercontent.com/8410716/173451313-efd99a0f-88ff-4891-b478-f4825d604ef1.png">
+
 ### CWD plus git (with no uncommitted changes, i.e., “clean”)
 <img width="875" alt="Git_example_clean" src="https://user-images.githubusercontent.com/8410716/173451576-273553c7-9b31-4288-ac1b-248f25097c73.png">
 
 ### CWD plus git (with uncommitted changes, i.e., “dirty”)
 <img width="875" alt="Git_example_dirty" src="https://user-images.githubusercontent.com/8410716/173451603-b88bb508-3c79-4523-806b-c3c43e4ca922.png">
+
 ### CWD plus nonzero return code
 <img width="879" alt="Nonzero_return_code_example" src="https://user-images.githubusercontent.com/8410716/173451675-5686422f-ca17-47ce-b9ce-464e5f4b39fd.png">
 
