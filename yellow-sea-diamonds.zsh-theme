@@ -1,56 +1,75 @@
-# fino-time.zsh-theme
+# yellow-sea-diamonds.zsh-theme
 
-# Use with a dark background and 256-color terminal!
-# Meant for people with RVM and git. Tested only on OS X 10.7.
+# I started with the theme fino-time, but I’ve played around with so much that I think there’s probably very little
+# still remaining from that theme.
 
-# You can set your computer name in the ~/.box-name file if you want.
-
-# Borrowing shamelessly from these oh-my-zsh themes:
-#   bira
-#   robbyrussell
-#
-# Also borrowing from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-#function prompt_char {
-#    git branch >/dev/null 2>/dev/null && echo '\u26a1 🔶' && return
-#    echo '○'
-#}
+# The best source I’ve stumbled across for the various settings available is:
+# Sarah Port, “Writing ZSH Themes: A Quickref,” CarbonFive, March 3, 2020.
+#   https://blog.carbonfive.com/writing-zsh-themes-a-quickref/
+# In particular, the Quick Reference is amazing:
+#   https://jsfiddle.net/seport/shrovLgf/embedded/result/
 
 function prompt_char {
     echo ' 🔶' && return
 }
 
-function box_name {
-  local box="${SHORT_HOST:-$HOST}"
-  [[ -f ~/.box-name ]] && box="$(< ~/.box-name)"
-  echo "${box:gs/%/%%}"
+# REPORT RETURN CODE
+# The following expression:
+#   %(?.$NOERROR.$ERROR_OCCURRED)
+# is a ternary conditional, which shows the second argument ($NOERROR) if the condition is true, and show the third
+# argument if the condition is false.
+# The condition (%?) is the return code. (Zero is true in Zsh.)
+# Displays $NOERROR if previous command exited normally
+# Displays $ERROR_OCCURRED otherwise
+# My personal preference: Display nothing if there was no error. A lack of error isn’t sufficiently informative to
+# warrant the additional visual noise.
+NOERROR=""
+# NOERROR="✅"
+# Displays "ERROR n" in White on Red background
+ERROR_OCCURRED="$BG[001]$FG[255]ERROR %?%f%k"
+
+REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
+
+# REPORT CURRENT WORKING DIRECTORY (CWD)
+# Explanation of: %0~
+#   If the CWD starts with $HOME, that part is replaced by “~”. Furthermore, if it has a named directory as its prefix,
+#   that part is replaced by “~” followed by the name of the directory, but only is the result is shorter than the full
+#   path.
+
+CWD_BASE="%0~"
+CWD=$FG[226]$CWD_BASE%f
+
+# REPORT VIRTUAL ENVIRONMENT
+
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
 }
 
-# PROMPT="╭─%{$FG[040]%}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} %{$FG[033]%}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} %{$terminfo[bold]$FG[226]%}%~%{$reset_color%}\$(git_prompt_info)\$(ruby_prompt_info) %D - %*
-# ╰─\$(virtualenv_info)\$(prompt_char) "
+VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 
-#PROMPT="╭─%{$terminfo[bold]$FG[226]%}%~%{$reset_color%}\$(git_prompt_info)\$(ruby_prompt_info)
-#╰─\$(virtualenv_info)\$(prompt_char) "
+# REPORT GIT BRANCH, STATUS, COMMIT, ETC>
+# $(git_prompt_info) is a function built into Oh My Zsh which displays the current branch name.
+# It also returns the following, which can be customized.
 
-#PROMPT="%F{224}%B${(r:$COLUMNS::~:)}%f%b
-#╭─%{$FG[040]%}\$(virtualenv_info)%f %{$FG[226]%}%0~%f%{$FG[033]%} \$(git_prompt_info) %{$FG[033]%}($(git_prompt_short_sha))%f\$(ruby_prompt_info)%{$reset_color%}
-#╰─\$(prompt_char) "
+# Prepended to the beginning of the git info
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
 
-#PROMPT="
-#╭─%{$FG[040]%}\$(virtualenv_info)%f %{$FG[226]%}%0~%f%{$FG[033]%} \$(git_prompt_info) %{$FG[033]%}$(git_prompt_short_sha)%f\$(ruby_prompt_info)%{$reset_color%}
-#╰─\$(prompt_char) "
+# Appended to the end of git info
+# Appends the hash of the committ, enclosed in “< … >”
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
+
+# Conditionally returned if there are any uncommitted changes on your branch
+# Returns a ❌ if there are uncommitted changes
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%} ✘%f"
+
+# Conditionally returned if there are no uncommitted changes on your branch
+# Returns a ✅ if the are no uncommitted changes on your branch
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
+
+GIT_REPORT=$FG[033]\$(git_prompt_info)%f
+
+# NOW CONSTRUCT THE PROMPT
 
 PROMPT="
-╭─%{$FG[040]%}\$(virtualenv_info)%f %{$FG[226]%}%0~%f%{$FG[033]%} \$(git_prompt_info) \$(ruby_prompt_info)%{$reset_color%}
-╰─\$(prompt_char) "
-
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%} ✘%f"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
-ZSH_THEME_RUBY_PROMPT_PREFIX=" %{$FG[239]%}using%{$FG[243]%} ‹"
-ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
+╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT %{$reset_color%}
+╰─$REPORT_RETURN_CODE\$(prompt_char) "
