@@ -60,7 +60,7 @@ COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 function commit_hash_report {
     [ $COMMIT_HASH ] && echo "$COMMIT_HASH"
 }
-COMMIT_HASH_REPORT=$FG[033]\$(commit_hash_report)%f
+# COMMIT_HASH_REPORT=$FG[033]\$(commit_hash_report)%f
 
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$COMMIT_HASH>%f%{$reset_color%}"
