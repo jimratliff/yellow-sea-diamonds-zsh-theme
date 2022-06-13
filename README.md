@@ -73,15 +73,24 @@ When you activate a venv virtual environment, your shell will typically supply i
 don’t prevent that, this will be annoyingly duplicative of Yellow Sea Diamond’s own “(venv)” prompt component. See
 the screenshot immediately below.
 
+<img width="879" alt="(venv)_with_duplication" src="https://user-images.githubusercontent.com/8410716/173463867-255cd7fc-3a0d-44d8-b842-0e4d8855f6d9.png">
+
+
 The key to preventing this duplication is issuing the following command *before* you activate your virtual environment:
 ```
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 ```
+(Hat tip to [icktoofay’s answer]([sdfsdfsdf](https://stackoverflow.com/a/16257963/8401379) and [Marlon Richert’s answer](https://stackoverflow.com/a/69314224/8401379) on Stack Overflow.)
+
+See the next screenshot for this method in action:
+<img width="879" alt="(venv)_without_duplication" src="https://user-images.githubusercontent.com/8410716/173463935-af8b2c22-151a-4ce7-a2a8-8430b40d7d0d.png">
+
 Of course, you won’t want to have to remember to type this command every time you activate a virtual environment. You’ll
 probably find it worthwhile to make an alias like the following:
 ```
 alias activate_venv='export VIRTUAL_ENV_DISABLE_PROMPT=1;source venv/bin/activate'
 ```
 Then, after `cd`-ing into the directory in which your `venv` directory resides, just type `activate_venv` to 
-simultaneously activate your virtual environment while also suppressing Zsh’s otherwise duplicative “(venv)” output.
+simultaneously activate your virtual environment while also suppressing Zsh’s otherwise duplicative “(venv)” output. See the next screenshot:
+<img width="879" alt="(venv)_without_duplication_using_alias" src="https://user-images.githubusercontent.com/8410716/173464465-18b83048-397e-4863-8531-5a742149f0bf.png">
+
