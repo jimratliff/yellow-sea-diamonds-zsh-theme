@@ -56,7 +56,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
 
 # Appended to the end of git info
 # Appends the hash of the committ, enclosed in “< … >”
-COMMIT_HASH='$(git_prompt_short_sha)'
+COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 function commit_hash_report {
     [ $COMMIT_HASH ] && echo $COMMIT_HASH
 }
@@ -80,7 +80,7 @@ GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 # NOW CONSTRUCT THE PROMPT
 
 PROMPT="
-╭─$VIRTUALENV_REPORT $CWD $COMMIT_HASH $GIT_REPORT $COMMIT_HASH_REPORT %{$reset_color%}
+╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT $COMMIT_HASH %{$reset_color%}
 ╰─$REPORT_RETURN_CODE\$(prompt_char) "
 
 
