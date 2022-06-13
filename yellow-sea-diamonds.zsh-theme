@@ -58,7 +58,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
 # Appends the hash of the committ, enclosed in “< … >”
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 function commit_hash_report {
-    [ $COMMIT_HASH ] && echo $COMMIT_HASH
+    [ $COMMIT_HASH ] && echo "$COMMIT_HASH"
 }
 COMMIT_HASH_REPORT=$FG[033]\$(commit_hash_report)%f
 
