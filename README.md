@@ -51,7 +51,8 @@ Line 2 for comments with long arguments, particularly long file paths.
 
 ## Examples of output
 ### Current working directory only, no git, no venv, no error return code
-<img width="976" alt="Current_working_directory_only" src="https://user-images.githubusercontent.com/8410716/173451242-e93f16b9-7295-4ca6-af27-8dfed499bac7.png">
+<img width="876" alt="Current_working_directory_only" src="https://user-images.githubusercontent.com/8410716/173452015-7bb02eaf-0eab-4dae-b601-b4324882f62d.png">
+
 ### CWD plus activated virtual environment
 <img width="876" alt="Name_of_activated_virtual_environment" src="https://user-images.githubusercontent.com/8410716/173451313-efd99a0f-88ff-4891-b478-f4825d604ef1.png">
 ### CWD plus git (with no uncommitted changes, i.e., “clean”)
