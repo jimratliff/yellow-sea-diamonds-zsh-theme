@@ -26,7 +26,7 @@ function prompt_char {
 NOERROR=""
 # NOERROR="✅"
 # Displays "ERROR n" in White on Red background
-ERROR_OCCURRED="$BG[001]$FG[255]ERROR %?%f%k"
+ERROR_OCCURRED="$BG[001]$FG[255]ERROR #%?%f%k"
 
 REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
 
@@ -52,7 +52,9 @@ VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 # It also returns the following, which can be customized.
 
 # Prepended to the beginning of the git info
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
+# The following _PREFIX works except for stray “)” after: main ❌
+# ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 
 # Appended to the end of git info
 # Appends the hash of the committ, enclosed in “< … >”
@@ -69,6 +71,7 @@ function commit_hash_report {
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$COMMIT_HASH>%f%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$COMMIT_HASH>%f%{$reset_color%}"
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <'$(git_prompt_short_sha)'>%f%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 # Conditionally returned if there are any uncommitted changes on your branch
 # Returns a ❌ if there are uncommitted changes
@@ -81,9 +84,13 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
 # NOW CONSTRUCT THE PROMPT
-
+# The following works except for a stray “)” after: main ❌/✅ and before the commit hash
 PROMPT="
 ╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT $COMMIT_HASH %{$reset_color%}
 ╰─$REPORT_RETURN_CODE\$(prompt_char) "
+
+# PROMPT="
+# ╭─$GIT_REPORT %{$reset_color%}
+# ╰─$REPORT_RETURN_CODE\$(prompt_char) "
 
 
