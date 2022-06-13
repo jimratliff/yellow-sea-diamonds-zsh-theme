@@ -56,8 +56,8 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
 
 # Appended to the end of git info
 # Appends the hash of the committ, enclosed in “< … >”
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX='%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}'
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <'$(git_prompt_short_sha)'>%f%{$reset_color%}"
 
 # Conditionally returned if there are any uncommitted changes on your branch
 # Returns a ❌ if there are uncommitted changes
