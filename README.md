@@ -126,7 +126,7 @@ After you turn on a new color with `$FG`, you’ll at some point later want to r
 see `%{$reset_color%}`.
 
 You can also access a handfull of colors by name, rather than number: Black, Red, Green, Yellow, Blue, Magenta, Cyan,
-White. If you specify a color by name, you’ll need to use the lowercase version of $FG and $BG, e.g., 
+White. If you specify a color by name, you’ll need to use the lowercase version of $FG and $BG, e.g., `$fg[red]`.
   
 ### Deleting a component or rearranging components
 The ultimate output of Yellow Sea Diamonds, or any such theme, is the prompt structure itself.
