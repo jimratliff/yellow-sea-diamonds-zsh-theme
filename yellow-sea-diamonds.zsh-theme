@@ -1,14 +1,7 @@
 # yellow-sea-diamonds.zsh-theme
 
 
-# I started with the theme fino-time, but I’ve played around with so much that I think there’s probably very little
-# still remaining from that theme.
 
-# The best source I’ve stumbled across for the various settings available is:
-# Sarah Port, “Writing ZSH Themes: A Quickref,” CarbonFive, March 3, 2020.
-#   https://blog.carbonfive.com/writing-zsh-themes-a-quickref/
-# In particular, the Quick Reference is amazing:
-#   https://jsfiddle.net/seport/shrovLgf/embedded/result/
 
 function prompt_char {
     echo ' 🔶' && return
@@ -53,25 +46,22 @@ VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 # It also returns the following, which can be customized.
 
 # Prepended to the beginning of the git info
-# The following _PREFIX works except for stray “)” after: main ❌
-# ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[250]%}| git:%f %{$FG[135]%}"
 ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 
 # Appended to the end of git info
-# Appends the hash of the committ, enclosed in “< … >”
-# COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
+# Appends the hash of the commit
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 function commit_hash_report {
     [ $COMMIT_HASH ] && echo $COMMIT_HASH
 }
-# COMMIT_HASH_TO_DISPLAY=\$(commit_hash_report)
-# COMMIT_HASH_TO_DISPLAY=COMMIT_HASH
-# COMMIT_HASH_REPORT=$FG[033]\$(commit_hash_report)%f
 
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$(git_prompt_short_sha)>%f%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$COMMIT_HASH>%f%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <$COMMIT_HASH>%f%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$FG[033]%} <'$(git_prompt_short_sha)'>%f%{$reset_color%}"
+
+# Although ZSH_THEME_GIT_PROMPT_SUFFIX is often used as the vehicle for displaying the commit hash, I ran into 
+# a problem I wasn't able to solve when using ZSH_THEME_GIT_PROMPT_SUFFIX for that purpose: the commit hash
+# wouldn't update automatically.
+# However, by appending it to the prompt myself, I don't have that problem.
+# The limitation that creates (as least as of the current state) is that I can't wrap the commit hash in
+# delimiters, because those delimiters would display even when there is no commit hash.
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 # Conditionally returned if there are any uncommitted changes on your branch
@@ -85,13 +75,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
 # NOW CONSTRUCT THE PROMPT
-# The following works except for a stray “)” after: main ❌/✅ and before the commit hash
 PROMPT="
 ╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT $COMMIT_HASH %{$reset_color%}
 ╰─$REPORT_RETURN_CODE\$(prompt_char) "
-
-# PROMPT="
-# ╭─$GIT_REPORT %{$reset_color%}
-# ╰─$REPORT_RETURN_CODE\$(prompt_char) "
 
 
