@@ -51,7 +51,7 @@ line to create some whitespace after the just-previous output):
    - The [Yellow Sea Diamond](https://unicode-table.com/en/1F536/) prompt,
      (“🔶”), after which this theme is named
      
-Packing most of the content into the first line, leaves plenty of room on 
+Packing most of the content into the first line leaves plenty of room on 
 Line 2 for comments with long arguments, particularly long file paths.
 
 ## Examples of output
@@ -140,7 +140,7 @@ want or rearrange the components that are already there.
 Each of the components is defined above the prompt structure, and they are defined in the same order that they appear
 in the prompt structure (L to R, then up to down).
 
-Of course, you add components, too. But you’re on your own there. 😉
+Of course, you can add components, too. But you’re on your own there. 😉
 
 ### Look out for: does the commit hash continue to update automatically?
 As you modify and refactor, I’d suggest that continously test your code.
@@ -161,4 +161,4 @@ check whether its hash updates.
 -->
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme/blob/main/LICENSE) file for details.
