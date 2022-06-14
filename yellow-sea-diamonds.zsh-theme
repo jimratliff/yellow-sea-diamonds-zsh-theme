@@ -1,24 +1,13 @@
 # yellow-sea-diamonds.zsh-theme
 # https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme
 
+# REPORT VIRTUAL ENVIRONMENT
 
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
+}
 
-# # REPORT RETURN CODE
-# # The following expression:
-# #   %(?.$NOERROR.$ERROR_OCCURRED)
-# # is a ternary conditional, which shows the second argument ($NOERROR) if the condition is true, and show the third
-# # argument if the condition is false.
-# # The condition (%?) is the return code. (Zero is true in Zsh.)
-# # Displays $NOERROR if previous command exited normally
-# # Displays $ERROR_OCCURRED otherwise
-# # My personal preference: Display nothing if there was no error. A lack of error isn’t sufficiently informative to
-# # warrant the additional visual noise.
-# NOERROR=""
-# # NOERROR="✅"
-# # Displays "ERROR n" in White on Red background
-# ERROR_OCCURRED="$BG[001]$FG[255]ERROR #%?%f%k"
-
-# REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
+VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 
 # REPORT CURRENT WORKING DIRECTORY (CWD)
 # Explanation of: %0~
@@ -29,13 +18,13 @@
 CWD_BASE="%0~"
 CWD=$FG[226]$CWD_BASE%f
 
-# REPORT VIRTUAL ENVIRONMENT
+# # REPORT VIRTUAL ENVIRONMENT
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
-}
+# function virtualenv_info {
+#     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
+# }
 
-VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
+# VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 
 # REPORT GIT BRANCH, STATUS, COMMIT, ETC>
 # $(git_prompt_info) is a function built into Oh My Zsh which displays the current branch name.
