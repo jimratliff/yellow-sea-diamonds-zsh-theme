@@ -67,8 +67,7 @@ Line 2 for comments with long arguments, particularly long file paths.
 ### CWD plus nonzero return code
 <img width="879" alt="Nonzero_return_code_example" src="https://user-images.githubusercontent.com/8410716/173451675-5686422f-ca17-47ce-b9ce-464e5f4b39fd.png">
 
-## Usage notes
-### Prevent duplication of the “(venv)” virtual-environment prompt
+## Usage note: Prevent duplication of the “(venv)” virtual-environment prompt
 When you activate a venv virtual environment, your shell will typically supply its own “(venv)” line of output. If you
 don’t prevent that, this will be annoyingly duplicative of Yellow Sea Diamond’s own “(venv)” prompt component. See
 the screenshot immediately below.
@@ -80,13 +79,13 @@ The key to preventing this duplication is issuing the following command *before*
 ```
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 ```
-(Hat tip to [icktoofay’s answer]([sdfsdfsdf](https://stackoverflow.com/a/16257963/8401379) and [Marlon Richert’s answer](https://stackoverflow.com/a/69314224/8401379) on Stack Overflow.)
+(Hat tip to [icktoofay’s answer](https://stackoverflow.com/a/16257963/8401379) and [Marlon Richert’s answer](https://stackoverflow.com/a/69314224/8401379) on Stack Overflow.)
 
 See the next screenshot for this method in action:
 <img width="879" alt="(venv)_without_duplication" src="https://user-images.githubusercontent.com/8410716/173463935-af8b2c22-151a-4ce7-a2a8-8430b40d7d0d.png">
 
 Of course, you won’t want to have to remember to type this command every time you activate a virtual environment. You’ll
-probably find it worthwhile to make an alias like the following:
+probably find it worthwhile to [make an alias](https://linuxhint.com/configure-use-aliases-zsh/) like the following:
 ```
 alias activate_venv='export VIRTUAL_ENV_DISABLE_PROMPT=1;source venv/bin/activate'
 ```
@@ -94,3 +93,32 @@ Then, after `cd`-ing into the directory in which your `venv` directory resides, 
 simultaneously activate your virtual environment while also suppressing Zsh’s otherwise duplicative “(venv)” output. See the next screenshot:
 <img width="879" alt="(venv)_without_duplication_using_alias" src="https://user-images.githubusercontent.com/8410716/173464465-18b83048-397e-4863-8531-5a742149f0bf.png">
 
+## Some tips for customizing Yellow Sea Diamonds, or any theme, to your liking
+### Good resources to learn about customizing themes
+An outstanding source to learn about customizing themes is Sarah Port, “[Writing ZSH Themes: A Quickref](https://blog.carbonfive.com/writing-zsh-themes-a-quickref/),” CarbonFive, March 3, 2020. In particular the [Quick Reference](https://jsfiddle.net/seport/shrovLgf/embedded/result/) is amazing.
+
+Also see:
+- Armin Briegel, “[Moving to zsh, part 6 — Customizing the zsh Prompt](https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/),” Scripting OS X.
+- § “[Prompt Expansion](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html#Prompt-Expansion)” in
+[The Z Shell Manual](https://zsh.sourceforge.io/Doc/Release/index.html). 
+
+### Changing colors
+Yellow Sea Diamonds specifies a color by using an integer 0–255 in, for example, an `%{$FG[226]%}` command, where `FG` 
+stands for “foreground,” as opposed to `%{$BG[226]%}`, which sets the background color.
+
+To be honest, I have no idea what all the characters in, for example, `%{$FG[226]%}`, are doing. If they’re really necessary, 
+somehow I’ve gotten away with simple use of `$FG[226]`, as you’ll see in the code for Yellow Sea Diamonds. (I’d love
+to be enlightened! 🧐)
+
+If you want to conveniently access the mapping between integers and colors, just use the `spectrum_ls` command, e.g.,
+see the next screenshot:
+
+INSERT SCREENSHOT HERE
+
+After you turn on a new color with `$FG`, you’ll at some point later want to reset it (so that color doesn’t take over the world) with
+`%f`. To reset the background color, use `%k`. To reset both foreground and background simultaneously, you’ll often
+see `%{$reset_color%}`.
+
+You can also access a handfull of colors by name, rather than number: Black, Red, Green, Yellow, Blue, Magenta, Cyan,
+White. If you specify a color by name, you’ll need to use the lowercase version of $FG and $BG, e.g., 
+  

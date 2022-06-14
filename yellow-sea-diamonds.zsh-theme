@@ -1,5 +1,6 @@
 # yellow-sea-diamonds.zsh-theme
 
+
 # I started with the theme fino-time, but I’ve played around with so much that I think there’s probably very little
 # still remaining from that theme.
 
