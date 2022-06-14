@@ -113,7 +113,7 @@ to be enlightened! 🧐)
 If you want to conveniently access the mapping between integers and colors, just use the `spectrum_ls` command, e.g.,
 see the next screenshot:
 
-INSERT SCREENSHOT HERE
+<img width="474" alt="spectrum_ls_output" src="https://user-images.githubusercontent.com/8410716/173466889-6551450e-6629-4068-9f6f-60e7de5897b7.png">
 
 After you turn on a new color with `$FG`, you’ll at some point later want to reset it (so that color doesn’t take over the world) with
 `%f`. To reset the background color, use `%k`. To reset both foreground and background simultaneously, you’ll often
