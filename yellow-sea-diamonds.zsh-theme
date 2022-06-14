@@ -18,20 +18,20 @@ VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 CWD_BASE="%0~"
 CWD=$FG[226]$CWD_BASE%f
 
-# # REPORT VIRTUAL ENVIRONMENT
-
-# function virtualenv_info {
-#     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
-# }
-
-# VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
-
 # REPORT GIT BRANCH, STATUS, COMMIT, ETC>
 # $(git_prompt_info) is a function built into Oh My Zsh which displays the current branch name.
 # It also returns the following, which can be customized.
 
 # Prepended to the beginning of the git info
 ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
+
+# Conditionally returned if there are any uncommitted changes on your branch
+# Returns a ❌ if there are uncommitted changes
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%} ✘%f"
+
+# Conditionally returned if there are no uncommitted changes on your branch
+# Returns a ✅ if the are no uncommitted changes on your branch
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 
 # Although ZSH_THEME_GIT_PROMPT_SUFFIX is often used as the vehicle for displaying the commit hash, I ran into 
 # a problem I wasn't able to solve when using ZSH_THEME_GIT_PROMPT_SUFFIX for that purpose: the commit hash
@@ -43,13 +43,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 # I need to set ZSH_THEME_GIT_PROMPT_SUFFIX to an empty string to prevent a default suffix from appearing.
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
-# Conditionally returned if there are any uncommitted changes on your branch
-# Returns a ❌ if there are uncommitted changes
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%} ✘%f"
 
-# Conditionally returned if there are no uncommitted changes on your branch
-# Returns a ✅ if the are no uncommitted changes on your branch
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
