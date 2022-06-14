@@ -1,9 +1,9 @@
 # yellow-sea-diamonds.zsh-theme
 # https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme
 
-function prompt_char {
-    echo ' 🔶' && return
-}
+# function prompt_char {
+#     echo ' 🔶' && return
+# }
 
 # REPORT RETURN CODE
 # The following expression:
@@ -46,10 +46,6 @@ VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 # Prepended to the beginning of the git info
 ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 
-# # Appended to the end of git info
-# # Appends the hash of the commit
-# COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
-
 # Although ZSH_THEME_GIT_PROMPT_SUFFIX is often used as the vehicle for displaying the commit hash, I ran into 
 # a problem I wasn't able to solve when using ZSH_THEME_GIT_PROMPT_SUFFIX for that purpose: the commit hash
 # wouldn't update automatically. (This typically has something to do with double quotes vs. single quotes, and
@@ -73,6 +69,10 @@ GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 Appended to the end of git info
 # Appends the hash of the commit
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
+
+function prompt_char {
+    echo ' 🔶' && return
+}
 
 # NOW CONSTRUCT THE PROMPT
 PROMPT="
