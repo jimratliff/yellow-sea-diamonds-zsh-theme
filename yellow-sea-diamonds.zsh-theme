@@ -79,4 +79,5 @@ PROMPT="
 ╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT $COMMIT_HASH %{$reset_color%}
 ╰─$REPORT_RETURN_CODE\$(prompt_char) "
 
+# Test for commit testing
 
