@@ -1,26 +1,24 @@
 # yellow-sea-diamonds.zsh-theme
 # https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme
 
-# function prompt_char {
-#     echo ' 🔶' && return
-# }
 
-# REPORT RETURN CODE
-# The following expression:
-#   %(?.$NOERROR.$ERROR_OCCURRED)
-# is a ternary conditional, which shows the second argument ($NOERROR) if the condition is true, and show the third
-# argument if the condition is false.
-# The condition (%?) is the return code. (Zero is true in Zsh.)
-# Displays $NOERROR if previous command exited normally
-# Displays $ERROR_OCCURRED otherwise
-# My personal preference: Display nothing if there was no error. A lack of error isn’t sufficiently informative to
-# warrant the additional visual noise.
-NOERROR=""
-# NOERROR="✅"
-# Displays "ERROR n" in White on Red background
-ERROR_OCCURRED="$BG[001]$FG[255]ERROR #%?%f%k"
 
-REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
+# # REPORT RETURN CODE
+# # The following expression:
+# #   %(?.$NOERROR.$ERROR_OCCURRED)
+# # is a ternary conditional, which shows the second argument ($NOERROR) if the condition is true, and show the third
+# # argument if the condition is false.
+# # The condition (%?) is the return code. (Zero is true in Zsh.)
+# # Displays $NOERROR if previous command exited normally
+# # Displays $ERROR_OCCURRED otherwise
+# # My personal preference: Display nothing if there was no error. A lack of error isn’t sufficiently informative to
+# # warrant the additional visual noise.
+# NOERROR=""
+# # NOERROR="✅"
+# # Displays "ERROR n" in White on Red background
+# ERROR_OCCURRED="$BG[001]$FG[255]ERROR #%?%f%k"
+
+# REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
 
 # REPORT CURRENT WORKING DIRECTORY (CWD)
 # Explanation of: %0~
@@ -69,6 +67,23 @@ GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 Appended to the end of git info
 # Appends the hash of the commit
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
+
+# REPORT RETURN CODE
+# The following expression:
+#   %(?.$NOERROR.$ERROR_OCCURRED)
+# is a ternary conditional, which shows the second argument ($NOERROR) if the condition is true, and show the third
+# argument if the condition is false.
+# The condition (%?) is the return code. (Zero is true in Zsh.)
+# Displays $NOERROR if previous command exited normally
+# Displays $ERROR_OCCURRED otherwise
+# My personal preference: Display nothing if there was no error. A lack of error isn’t sufficiently informative to
+# warrant the additional visual noise.
+NOERROR=""
+# NOERROR="✅"
+# Displays "ERROR n" in White on Red background
+ERROR_OCCURRED="$BG[001]$FG[255]ERROR #%?%f%k"
+
+REPORT_RETURN_CODE="%(?.$NOERROR.$ERROR_OCCURRED)"
 
 function prompt_char {
     echo ' 🔶' && return
