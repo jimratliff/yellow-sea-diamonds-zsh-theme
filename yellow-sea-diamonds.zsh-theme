@@ -46,13 +46,9 @@ VIRTUALENV_REPORT=$FG[040]\$(virtualenv_info)%f
 # Prepended to the beginning of the git info
 ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 
-# Appended to the end of git info
-# Appends the hash of the commit
-COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
-# function commit_hash_report {
-#     [ $COMMIT_HASH ] && echo $COMMIT_HASH
-# }
-
+# # Appended to the end of git info
+# # Appends the hash of the commit
+# COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 
 # Although ZSH_THEME_GIT_PROMPT_SUFFIX is often used as the vehicle for displaying the commit hash, I ran into 
 # a problem I wasn't able to solve when using ZSH_THEME_GIT_PROMPT_SUFFIX for that purpose: the commit hash
@@ -61,6 +57,7 @@ COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 # However, by appending it to the prompt myself, I don't have that problem.
 # The limitation that creates (as least as of the current state) is that I can't wrap the commit hash in
 # delimiters, because those delimiters would display even when there is no commit hash.
+# I need to set ZSH_THEME_GIT_PROMPT_SUFFIX to an empty string to prevent a default suffix from appearing.
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 # Conditionally returned if there are any uncommitted changes on your branch
@@ -73,10 +70,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
+Appended to the end of git info
+# Appends the hash of the commit
+COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
+
 # NOW CONSTRUCT THE PROMPT
 PROMPT="
 ╭─$VIRTUALENV_REPORT $CWD $GIT_REPORT $COMMIT_HASH %{$reset_color%}
 ╰─$REPORT_RETURN_CODE\$(prompt_char) "
-
-# Test for commit testing
 
