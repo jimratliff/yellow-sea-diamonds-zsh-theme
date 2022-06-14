@@ -1,7 +1,5 @@
 # yellow-sea-diamonds.zsh-theme
-
-
-
+# https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme
 
 function prompt_char {
     echo ' 🔶' && return
@@ -51,14 +49,15 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" $FG[250]| git:%f $FG[135]"
 # Appended to the end of git info
 # Appends the hash of the commit
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
-function commit_hash_report {
-    [ $COMMIT_HASH ] && echo $COMMIT_HASH
-}
+# function commit_hash_report {
+#     [ $COMMIT_HASH ] && echo $COMMIT_HASH
+# }
 
 
 # Although ZSH_THEME_GIT_PROMPT_SUFFIX is often used as the vehicle for displaying the commit hash, I ran into 
 # a problem I wasn't able to solve when using ZSH_THEME_GIT_PROMPT_SUFFIX for that purpose: the commit hash
-# wouldn't update automatically.
+# wouldn't update automatically. (This typically has something to do with double quotes vs. single quotes, and
+# the fix is using single quotes to delay evaluation.)
 # However, by appending it to the prompt myself, I don't have that problem.
 # The limitation that creates (as least as of the current state) is that I can't wrap the commit hash in
 # delimiters, because those delimiters would display even when there is no commit hash.
