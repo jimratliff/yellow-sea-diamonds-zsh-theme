@@ -43,8 +43,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} ✔%f"
 # I need to set ZSH_THEME_GIT_PROMPT_SUFFIX to an empty string to prevent a default suffix from appearing.
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
-
-
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
 Appended to the end of git info
