@@ -28,6 +28,8 @@ line to create some whitespace after the just-previous output):
    - “(venv)” (or whatever the name of your virtual environment directory)
      - The presence of this descriptor is conditional on your having an 
        activated virtual environment
+     - See [§ Usage note: Prevent duplication of the ‘(venv)’ virtual-environment prompt](#usage-note-prevent-duplication-of-the-venv-virtual-environment-prompt) below to stop Zsh’s own “(venv)” 
+     output from being duplicative
    - Current working directory, with “~” replacing $HOME when possible
    - Git information (conditional on there being git information to display)
      - “ | git: ”
