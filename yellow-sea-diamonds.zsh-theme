@@ -45,7 +45,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 GIT_REPORT=$FG[033]\$(git_prompt_info)%f
 
-Appended to the end of git info
+# Appended to the end of git info
 # Appends the hash of the commit
 COMMIT_HASH='$FG[033]$(git_prompt_short_sha)%f'
 
