@@ -58,7 +58,7 @@ Packing most of the content into the first line leaves plenty of room on
 Line 2 for comments with long arguments, particularly long file paths.
 
 ## Examples of output
-### Current working directory (CWD) only, no git, no venv, no error return code
+### Current working directory (CWD) only—no git, no venv, no error return code
 <img width="876" alt="Current_working_directory_only" src="https://user-images.githubusercontent.com/8410716/173452015-7bb02eaf-0eab-4dae-b601-b4324882f62d.png">
 
 ### CWD plus activated virtual environment
