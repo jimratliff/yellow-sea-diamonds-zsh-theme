@@ -58,7 +58,7 @@ Packing most of the content into the first line leaves plenty of room on
 Line 2 for comments with long arguments, particularly long file paths.
 
 ## Examples of output
-### Current working directory only, no git, no venv, no error return code
+### Current working directory (CWD) only, no git, no venv, no error return code
 <img width="876" alt="Current_working_directory_only" src="https://user-images.githubusercontent.com/8410716/173452015-7bb02eaf-0eab-4dae-b601-b4324882f62d.png">
 
 ### CWD plus activated virtual environment
@@ -72,6 +72,35 @@ Line 2 for comments with long arguments, particularly long file paths.
 
 ### CWD plus nonzero return code
 <img width="879" alt="Nonzero_return_code_example" src="https://user-images.githubusercontent.com/8410716/173451675-5686422f-ca17-47ce-b9ce-464e5f4b39fd.png">
+
+## Install Yellow Sea Diamonds
+You can download this theme from its GitHub repository at:
+```
+https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme/archive/refs/heads/main.zip
+```
+and unzip the archive to find the Oh My Zsh theme file `yellow-sea-diamonds.zsh-theme`.
+
+Although that is the *file* name, the theme name is simply `yellow-sea-diamonds`.
+
+You can install Yellow Sea Diamonds in either of the following locations
+
+```
+~/.oh-my-zsh/themes
+```
+or
+```
+~/.oh-my-zsh/custom/themes
+```
+Then edit your `~/.zshrc` file and change its `ZSH_THEME` line to be:
+```
+ZSH_THEME="yellow-sea-diamonds"
+```
+Follow this up with:
+```
+source ~/.zshrc 
+```
+
+
 
 ## Usage note: Prevent duplication of the “(venv)” virtual-environment prompt
 When you activate a venv virtual environment, virtualenv will supply its own “(venv)” line of output. If you
@@ -146,9 +175,9 @@ in the prompt structure (L to R, then up to down).
 Of course, you can add components, too. But you’re on your own there. 😉
 
 ### Look out for: does the commit hash continue to update automatically?
-As you modify and refactor, I’d suggest that continously test your code.
+As you modify and refactor, I’d suggest that you continuously test your code.
 
-One thing in particular to watch out for: Does the commit hash continue to update automatically? I've had the problem
+One thing in particular to watch out for: Does the commit hash continue to update automatically? I’ve had the problem
 arise where a commit hash would be displayed, but then—after I made a subsequent commit—that hash wouldn’t change. It’s
 an easy failure to miss, so I suggest—as part of your testing during development—to continuously make a new commit to
 check whether its hash updates.
