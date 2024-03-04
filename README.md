@@ -20,7 +20,7 @@ my personal workflow that is characterized by:
   - (Although I use [VS Code](https://code.visualstudio.com/), too, I almost always use
    [iTerm2](https://iterm2.com/) as the terminal app rather than VS Code’s integrated terminal)
   - This is the only environment on which Yellow Sea Diamonds has been tested
-  - Will [my diamond emoji](https://unicode-table.com/en/1F536/) with color
+  - Will [my diamond emoji](https://symbl.cc/en/1F536/) with color
     [“Yellow Sea](https://www.htmlcsscolor.com/hex/EB9E2B)” (“🔶”) render
     correctly and with the the same color on other people’s systems?
       - I don’t know!
@@ -51,7 +51,7 @@ line to create some whitespace after the just-previous output):
        in my experience that’s not an exceptional event and so adding such 
        would create visual noise not offset by the minimal informativeness
        of the extra symbol.
-   - The [Yellow Sea Diamond](https://unicode-table.com/en/1F536/) prompt,
+   - The [Yellow Sea Diamond](https://symbl.cc/en/1F536/) prompt,
      (“🔶”), after which this theme is named
      
 Packing most of the content into the first line leaves plenty of room on 
