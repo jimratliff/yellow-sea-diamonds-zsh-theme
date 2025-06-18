@@ -55,7 +55,7 @@ line to create some whitespace after the just-previous output):
      (“🔶”), after which this theme is named
      
 Packing most of the content into the first line leaves plenty of room on 
-Line 2 for comments with long arguments, particularly long file paths.
+Line 2 for commands with long arguments, particularly long file paths.
 
 ## Examples of output
 ### Current working directory (CWD) only—no git, no venv, no error return code
