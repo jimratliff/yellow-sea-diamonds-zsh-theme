@@ -1,6 +1,7 @@
 # Yellow Sea Diamonds 🔶🔶🔶 theme for Zsh/Oh My Zsh
 <img width="660" alt="Omnibus_demo_YSD_theme_annotated" src="https://user-images.githubusercontent.com/8410716/173704660-d06e09da-69e7-4a57-a1d2-e979124c39be.png">
 
+**I’m not using Oh My Zsh anymore, so I’m archving this. You can still fork it, of course.**
 
 See this README [on GitHub](https://github.com/jimratliff/yellow-sea-diamonds-zsh-theme/blob/main/README.md).
 
